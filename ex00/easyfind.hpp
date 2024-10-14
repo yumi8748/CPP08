@@ -5,22 +5,11 @@
 # include <vector>
 
 template<typename T>
-class Easyfind
-{
+typename T::iterator Easyfind( T &container, int to_find ){
+	res = std::find(container.begin(), container.end(), to_find)
+	if (res == container.end())
+		throw std::runtime_error("TO_FIND isn't found in the container");
+}
 
-	public:
-
-		Easyfind();
-		Easyfind( T &container, int to_find );
-		Easyfind &		operator=( Easyfind const & other );
-		Easyfind( Easyfind const & other );
-		Easyfind T::iterator get_res();
-		~Easyfind();
-
-	private:
-		typename T::interator res;
-};
-
-# include "easyfind.tpp"
 
 #endif /* ******************************************************** EASYFIND_H */
