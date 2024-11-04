@@ -31,6 +31,8 @@ int main(){
     // Test the copy constructor from std::stack
     std::stack<int> s(mstack);
 
+	std::cout << "---------------" << std::endl;
+
     std::cout << "Testing with std::list:" << std::endl;
     std::list<int> lst;
     lst.push_back(5);

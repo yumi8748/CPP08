@@ -19,8 +19,19 @@ class Span
 		Span &		operator=( Span const & rhs );
 
 		void	addNumber(int nbr);
-		int	shortestSpan();
-		int	longestSpan();
+		template <typename Iterator>
+		void 	addNumber(Iterator begin, Iterator end)
+		{
+			while (begin != end)
+            {
+                if (nbr_list.size() >= MaxNbrOfInt)
+                    throw FullException();
+                nbr_list.push_back(*begin);
+                ++begin;
+            }
+		}
+		int		shortestSpan();
+		int		longestSpan();
 
 		class FullException: public std::exception{
 			const char *what() const throw(){

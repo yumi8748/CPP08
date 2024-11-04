@@ -50,11 +50,11 @@ int	Span::shortestSpan()
 {
 	if (nbr_list.size() < 2)
 		throw (TooFewException());
-	std::vector<int> sorted_list;
+	std::vector<int> sorted_list = nbr_list;
 	std::sort(sorted_list.begin(), sorted_list.end());
 	
 	int MinSpan = std::numeric_limits<int>::max();
-	for(int i=0;i<sorted_list.size(); i++)
+	for(int i = 1;i < sorted_list.size(); ++i)
 	{
 		int tmp_span = sorted_list[i] - sorted_list[i - 1];
 		if (tmp_span < MinSpan)
@@ -67,10 +67,10 @@ int	Span::longestSpan()
 {
 	if (nbr_list.size() < 2)
 		throw (TooFewException());
-	std::vector<int> sorted_list;
+	std::vector<int> sorted_list = nbr_list;
 	std::sort(sorted_list.begin(), sorted_list.end());
-	int MaxSpan = sorted_list.end() - sorted_list.begin();
-	return (MaxSpan);
+        
+	return sorted_list.back() - sorted_list.front();
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
